@@ -36,13 +36,15 @@ services:
 
     parentrepository:
         class: AppBundle\Repository\ParentRepository
-        factory_service: doctrine.orm.entity_manager
-        factory_method: getRepository
-        arguments:
-        - AppBundle\Document\Parnt
-        
+        factory_service: ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['@doctrine.odm.mongodb.document_manager']
+
+    babysitterrepository:
+        class: AppBundle\Repository\BabysitterRepository
+        factory_service: ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['@doctrine.odm.mongodb.document_manager']
+
     AuthentificationController:
             class: AppBundle\Controller\AuthentificationController
-            arguments:
-             - "@parentrepository"
-            
+            arguments: ['@parentrepository','@babysitterrepository']
+             

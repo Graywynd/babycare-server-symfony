@@ -3,6 +3,9 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityManager;
 
 /**
  * BabysitterRepository
@@ -12,4 +15,21 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class BabysitterRepository extends DocumentRepository
 {
+
+     public $dm;
+
+    public function __construct(DocumentManager $dm ) {
+    
+      $this->dm = $dm;
+   }
+
+     public function AddBabysitter($babysitter)
+    {
+
+   
+    $this->dm->persist($babysitter);
+    $this->dm->flush();
+
+    
+  }
 }

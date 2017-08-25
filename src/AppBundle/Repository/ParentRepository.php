@@ -3,7 +3,9 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
-
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityManager;
 /**
  * ParentRepository
  *
@@ -12,13 +14,20 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class ParentRepository extends DocumentRepository
 {
+    
+     public $dm;
+
+    public function __construct(DocumentManager $dm ) {
+     
+      $this->dm = $dm;
+   }
 
      public function AddParent($parent)
     {
 
-    $dm = $this->get('doctrine_mongodb')->getManager();
-    $dm->persist($parent);
-    $dm->flush();
+   
+    $this->dm->persist($parent);
+    $this->dm->flush();
 
     
   }

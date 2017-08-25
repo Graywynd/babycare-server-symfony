@@ -20,10 +20,10 @@ class AuthentificationController extends Controller
     public $parentrepository;
     public $babysitterrepository;
 
-    public function __construct(ParentRepository $parentrepository)
+    public function __construct(ParentRepository $parentrepository, BabysitterRepository $babysitterrepository)
     {
         $this->parentrepository =  $parentrepository;
-        //$this->babysitterrepository =  new BabysitterRepository(); 
+        $this->babysitterrepository =  $babysitterrepository; 
     }
 
     /**
@@ -72,7 +72,7 @@ class AuthentificationController extends Controller
          $babysitter->setAddress($data["address"]);
          $babysitter->setBirthdate($data["Birthdate"]);
 
-        $this->parentrepository->AddParent($babysitter);      
+        $this->babysitterrepository->AddBabysitter($babysitter);      
 
       /*  $dm = $this->get('doctrine_mongodb')->getManager();
         $dm->persist($babysitter);
