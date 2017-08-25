@@ -10,6 +10,7 @@ class  MongodbManager extends Controller
     public function __construct() {  
    }
 
+
     public  function getMongodbManager(){
         if(is_null(self::$dm)){
          self::$dm = $this->get('doctrine_mongodb')->getManager();
