@@ -15,6 +15,7 @@ class  MongodbManager extends Controller
          self::$dm = $this->get('doctrine_mongodb')->getManager();
         }
 
+
         return self::$dm;
     }
 
