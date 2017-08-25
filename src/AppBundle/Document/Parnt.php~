@@ -1,0 +1,69 @@
+<?php
+namespace AppBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Parnt
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $lastname;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $firstname;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $email;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $username;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $password;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $gender;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $address;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $Birthdate;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $profilepic;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $joindate;
+
+
+
+   
+}

@@ -33,3 +33,16 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    parentrepository:
+        class: AppBundle\Repository\ParentRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+        - AppBundle\Document\Parnt
+        
+    AuthentificationController:
+            class: AppBundle\Controller\AuthentificationController
+            arguments:
+             - "@parentrepository"
+            
