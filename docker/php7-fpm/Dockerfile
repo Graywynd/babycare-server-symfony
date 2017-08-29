@@ -18,17 +18,18 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN "date"
  
-# Install APCu v5.1.7
-RUN mkdir -p /usr/src/php/ext
-RUN curl -L -o /tmp/apcu-5.1.7.tgz https://pecl.php.net/get/apcu-5.1.7.tgz
-RUN tar xfz /tmp/apcu-5.1.7.tgz
-RUN rm -r /tmp/apcu-5.1.7.tgz
-RUN mv apcu-5.1.7  /usr/src/php/ext/apcu
- 
-# Install the available extensions
-RUN docker-php-pecl-install mongodb
- 
-
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+        libssl-dev \
+    && pecl install mongodb \
+    && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/ext-mongodb.ini \
+    && echo "upload_max_filesize = 5M" > /usr/local/etc/php/conf.d/upload.ini \
+    && docker-php-ext-install iconv mcrypt mbstring exif zip \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd
 
 # Configure short open tag for Symfony
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/php.ini
