@@ -1,0 +1,23 @@
+version: '2'
+ 
+services:
+  nginx:
+        build: docker/nginx
+        ports:
+            - 80:80
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./docker/logs/nginx/:/var/log/nginx
+  php:
+        build: docker/php7-fpm # Get our Dockerfile configuration
+        ports:
+            - 9000:9000
+        links:
+            - db:mysqldb
+        volumes:
+            - .:/var/www/babycare-server-symfony
+
+            
