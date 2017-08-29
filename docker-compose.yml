@@ -5,7 +5,7 @@ services:
   nginx:
         build: docker/nginx 
         ports:
-            - "172.31.39.160:8003:8003"
+            - "8000:8000"
         links:
             - php
         volumes_from:
