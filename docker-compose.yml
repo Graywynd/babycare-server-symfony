@@ -15,8 +15,6 @@ services:
         build: docker/php7-fpm # Get our Dockerfile configuration
         ports:
             - 9000:9000
-        links:
-            - db:mysqldb
         volumes:
             - .:/var/www/babycare-server-symfony
 
