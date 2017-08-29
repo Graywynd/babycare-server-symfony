@@ -5,11 +5,7 @@ services:
   nginx:
         build: docker/nginx 
         ports:
-            - 8000:8000
-        networks:
-          app_subnet:
-           ipv4_address:  172.31.39.160
-
+            - "172.31.39.160:8003:8003"
         links:
             - php
         volumes_from:
@@ -19,10 +15,6 @@ services:
   php:
         build: docker/php7-fpm # Get our Dockerfile configuration
         ports:
-            - 9000:9000
+            - "9000:9000"
         volumes:
             - .:/var/www/babycare-server-symfony
-            
-networks:                                                                                                                                                                                                                                                                      
-  app_subnet:                                                                                                                                                                                                                                                                      
-    external: true
