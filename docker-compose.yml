@@ -7,7 +7,7 @@ services:
         ports:
             - 8000:8000
         networks:
-          bridge:
+          app_subnet:
            ipv4_address:  172.31.39.160
 
         links:
@@ -24,5 +24,5 @@ services:
             - .:/var/www/babycare-server-symfony
             
 networks:                                                                                                                                                                                                                                                                      
-  bridge:                                                                                                                                                                                                                                                                      
+  app_subnet:                                                                                                                                                                                                                                                                      
     external: true
