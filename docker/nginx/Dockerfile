@@ -17,5 +17,5 @@ RUN usermod -u 501 www-data
  
 CMD ["nginx"]
  
-EXPOSE 172.31.39.160:8002
+EXPOSE 8000
 EXPOSE 443
