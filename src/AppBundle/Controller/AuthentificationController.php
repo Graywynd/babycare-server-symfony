@@ -82,4 +82,16 @@ class AuthentificationController extends Controller
 
         }
     }
+
+
+    /**
+     * @Route("/test", name="places_list")
+     * @Method({"GET"})
+     */
+    public function getPlacesAction()
+    {
+
+      return new JsonResponse(array('success' => true,'message' => 'Cest bon'));
+    }
+
 }
