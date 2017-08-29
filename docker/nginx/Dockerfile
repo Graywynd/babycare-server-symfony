@@ -17,4 +17,5 @@ RUN usermod -u 501 www-data
  
 CMD ["nginx"]
  
-EXPOSE 8000
+EXPOSE 80
+EXPOSE 443
