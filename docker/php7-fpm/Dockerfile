@@ -26,7 +26,7 @@ RUN rm -r /tmp/apcu-5.1.7.tgz
 RUN mv apcu-5.1.7  /usr/src/php/ext/apcu
  
 # Install the available extensions
-RUN docker-php-ext-install mongodb
+RUN docker-php-pecl-install mongodb
  
 
 
