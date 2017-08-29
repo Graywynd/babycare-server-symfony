@@ -6,8 +6,8 @@ services:
         ports:
             - 8000:8000
         networks:
-          vpcbr:
-            ipv4_address: 172.31.39.160
+          app_subnet:
+           ipv4_address:  172.31.39.160
 
         links:
             - php
