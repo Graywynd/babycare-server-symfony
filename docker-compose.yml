@@ -1,12 +1,13 @@
 version: '2'
  
 services:
+
   nginx:
         build: docker/nginx 
         ports:
             - 8000:8000
         networks:
-          app_subnet:
+          bridge:
            ipv4_address:  172.31.39.160
 
         links:
@@ -21,5 +22,7 @@ services:
             - 9000:9000
         volumes:
             - .:/var/www/babycare-server-symfony
-
             
+networks:                                                                                                                                                                                                                                                                      
+  bridge:                                                                                                                                                                                                                                                                      
+    external: true
