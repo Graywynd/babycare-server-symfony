@@ -84,6 +84,26 @@ class AuthentificationController extends Controller
     }
 
 
+
+    /**
+     * @Route("/test", name="testing")
+     * @Method({"POST"})
+     */
+    public function test_post(Request $request)
+    {
+        $data = json_decode($request->getContent(), true);
+
+
+        if(empty($data["email"]) || empty($data["username"]) || empty($data["password"]) ){
+
+           return new JsonResponse(array('success' => false,'message' => 'test not ok'));
+        }else if ($data["usertype"] == "parent"){
+         
+         return new JsonResponse(array('success' => true,'message' => 'test ok'));
+                
+        }
+    }
+
     /**
      * @Route("/test", name="places_list")
      * @Method({"GET"})
