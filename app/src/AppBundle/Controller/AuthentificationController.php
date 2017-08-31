@@ -99,7 +99,7 @@ class AuthentificationController extends Controller
            return new JsonResponse(array('success' => false,'message' => 'test not ok'));
         }else if ($data["usertype"] == "parent"){
          
-         return new JsonResponse(array('succccess' => true,'message' => 'test ok with docker in jenkins please work !!'));
+         return new JsonResponse(array('succccess' => true,'message' => 'test ok with docker in jenkins test mongodb'));
                 
         }
     }
