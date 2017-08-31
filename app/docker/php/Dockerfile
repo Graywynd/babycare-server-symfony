@@ -1,6 +1,7 @@
 
 
 FROM php:7.1-fpm
+
 RUN apt-get update
 RUN apt-get install -y autoconf pkg-config libssl-dev
 RUN pecl install mongodb-1.2.2
@@ -21,3 +22,5 @@ RUN docker-php-ext-install iconv mcrypt mbstring \
 
 
 WORKDIR /var/www/dev
+
+RUN chown -R www-data:www-data var/logs var/cache var/sessions
