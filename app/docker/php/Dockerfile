@@ -1,5 +1,6 @@
-FROM  codereviewvideos/www.dev
+//FROM  codereviewvideos/www.dev
 
+FROM php:7.1-fpm
 RUN apt-get update
 RUN apt-get install -y autoconf pkg-config libssl-dev
 RUN pecl install mongodb-1.2.2
