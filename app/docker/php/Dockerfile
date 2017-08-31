@@ -22,5 +22,3 @@ RUN docker-php-ext-install iconv mcrypt mbstring \
 
 
 WORKDIR /var/www/dev
-
-RUN chown -R www-data:www-data var/logs var/cache var/sessions
