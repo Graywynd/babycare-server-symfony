@@ -17,7 +17,7 @@ services:
               - nginx
 
     php:
-        build: codereviewvideos/www.dev app/docker/php
+        build: app/docker/php
         restart: always
         volumes:
           - "./volumes/php/app/cache:/var/www/dev/app/cache/:rw"
